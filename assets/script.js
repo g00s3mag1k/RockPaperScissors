@@ -2,10 +2,10 @@ var wins=0;
 var ties=0;
 var losses=0;
 
-var options = ['Rock', 'Paper', 'Scissor'];
+var options = ['R', 'P', 'S'];
 
 var playGames = function() {
-    var userChoice = window.prompt('Enter Rock, Paper, or Scissor:');
+    var userChoice = window.prompt('Enter R, P, or S:');
 
     if (!userChoice) {
         return;
@@ -22,9 +22,9 @@ var playGames = function() {
         ties++;
         window.alert("It's a tie!");
     } else if (
-        (userChoice === "Rock" && computerChoice === "Scissor") ||
-        (userChoice === "Paper" && computerChoice === "Rock") ||
-        (userChoice === "Scissor" && computerChoice === "Paper")
+        (userChoice === "R" && computerChoice === "S") ||
+        (userChoice === "P" && computerChoice === "R") ||
+        (userChoice === "S" && computerChoice === "P")
     ) {
         wins++;
         window.alert("You win!");
@@ -33,5 +33,13 @@ var playGames = function() {
         window.alert("You lost!");
     }
 
-    
-}
+    window.alert("Stats:\nWins: " + wins + "\nLosses: " + losses + "\nTies: " + ties);
+
+    var playAgain = window.alert("Play again?");
+
+    if (playAgain) {
+        playGames();
+    }
+};
+
+playGames();
